@@ -1,0 +1,108 @@
+
+<!-- <ul>
+  <li *ngFor="let person of allEmployees"> 
+    {{ person.firstName }}
+  </li>
+ </ul> -->
+ <div class="col-md-12">
+   <div class="row" >
+    
+      <form class="col-md-12" [formGroup]="empForm" >
+        <div   *ngIf="showSelected" class="row">
+        
+          <div class="form-group col-md-6">
+            <label for="name">EmpID</label>
+            <input type="text" class="form-control" id="empId" name="empId" formControlName="empId" 
+             required>
+              <span *ngIf="empForm.controls.empId.invalid && (empForm.controls.empId.dirty || empForm.controls.empId.touched)"
+              class="text-danger" style="position:absolute"> is required, must be at least 4 characters long.
+
+            </span> 
+       
+          </div>
+      
+          <div class="form-group col-md-6">
+            <label for="alterEgo">JobTitle</label>
+            <input type="text" class="form-control" id="jobName" formControlName="jobName">
+            <span *ngIf="empForm.controls.jobName.invalid && (empForm.controls.jobName.dirty || empForm.controls.jobName.touched)"
+            class="text-danger" style="position:absolute"> is required, must be at least 4 characters long.</span>
+
+          </div>
+          <div class="form-group col-md-6">
+            <label for="alterEgo">LasFirstName</label>
+            <input type="text" class="form-control" id="lName" formControlName="fName">
+            <span *ngIf="empForm.controls.fName.invalid && (empForm.controls.fName.dirty || empForm.controls.fName.touched)"
+            class="text-danger" style="position:absolute"> is required, least 4 characters long.</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="alterEgo">LastName</label>
+            <input type="text" class="form-control" id="lName" formControlName="lName">
+            <span *ngIf="empForm.controls.lName.invalid && (empForm.controls.lName.dirty || empForm.controls.lName.touched)"
+            class="text-danger" style="position:absolute"> is required.</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="alterEgo">employeCode</label>
+            <input type="text" class="form-control" id="empCode" formControlName="empCode">
+            <span *ngIf="empForm.controls.empCode.invalid && (empForm.controls.empCode.dirty || empForm.controls.empCode.touched)"
+            class="text-danger" style="position:absolute"> is required.</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="alterEgo">PhoneNumber</label>
+            <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+            <span *ngIf="empForm.controls.phoneNumber.invalid && (empForm.controls.phoneNumber.dirty || empForm.controls.phoneNumber.touched)"
+            class="text-danger" style="position:absolute"> Only Numbers max 10 to be enter.</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="alterEgo">Email</label>
+            <input type="text" class="form-control" id="emailAddr" formControlName="emailAddr">
+            <span *ngIf="empForm.controls.emailAddr.invalid && (empForm.controls.emailAddr.dirty || empForm.controls.emailAddr.touched)"
+            class="text-danger" style="position:absolute"> is required.</span>
+          </div>
+          <div class="form-group col-md-6" >
+          <button type="submit" class="btn btn-success" (click)="save()" *ngIf="showmeadd" [disabled]="!empForm.valid">ADD</button>
+          <button type="submit" class="btn btn-success" *ngIf="showmeupdate"
+          (click)="updateEmployee1(empForm.value)"> Update</button>
+          <button type="reset" class="btn btn-warning" (click)="removeObject()">
+            Reset</button>
+          <button type="submit" class="btn btn-warning" (click)="close()">
+            Close</button>
+            </div>
+          </div>
+        </form>
+ </div>
+
+ <div class="float-right">
+   <button class="btn btn-primary pull-right" (click)="addNew()">Add New</button></div>
+</div>
+ <div class="table-respnsive">
+ <table class="table table-default">
+   <thead>
+     <tr>
+       <!-- <th>EmpSeral</th> -->
+       <th>EmpId</th>
+       <th>jobTitleName</th>
+       <th>firstName</th>
+       <th>lastName</th>
+       <th>employeeCode</th>
+       <th>phoneNumber</th>
+       <th>emailAddress</th>
+       <th>OPtions</th>
+       <th></th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let person of allEmployees">
+       <!-- <td>{{ person.id }}</td> -->
+       <td><a routerLink= "/{{person.id}}">{{ person.userID }}</a></td>
+       <td>{{ person.jobName }}</td>
+       <td>{{ person.firstName }}</td>
+       <td>{{ person.lastName }}</td>
+       <td>{{ person.employeeCode }}</td>
+       <td>{{ person.phoneNumber }}</td>
+       <td>{{ person.emailAddress }}</td>
+       <td><button class="btn btn-info"  (click)="editEmployee(person)">  Edit  </button>
+       <button class="btn btn-danger"   (click)="empDelete(person.id)"> Delete</button></td>
+     </tr>
+   </tbody>
+ </table>
+</div>

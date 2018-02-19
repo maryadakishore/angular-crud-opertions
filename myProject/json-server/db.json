@@ -1,0 +1,64 @@
+{
+  "Employees": [
+    {
+      "userID": "k123",
+      "firstName": "kishore",
+      "lastName": "MK NN",
+      "jobName": "ui",
+      "phoneNumber": "9876543210",
+      "emailAddress": "kishore@gmail.com",
+      "employeeCode": "asdasd",
+      "id": 2
+    },
+    {
+      "userID": "m123",
+      "firstName": "kishore",
+      "lastName": "Mr k",
+      "jobName": "ui eng",
+      "phoneNumber": "9854643210",
+      "emailAddress": "kiran@gmail.com",
+      "employeeCode": "mk123",
+      "id": 3
+    },
+    {
+      "userID": "xcdv",
+      "firstName": "xcvxcv",
+      "lastName": "cxv",
+      "jobName": "xcvcx",
+      "phoneNumber": "cxvcxv",
+      "emailAddress": "cxvcxv",
+      "employeeCode": "cxvcx",
+      "id": 5
+    },
+    {
+      "userID": "M123",
+      "firstName": "kiran kumar",
+      "lastName": "Mkumar",
+      "jobName": "ui",
+      "phoneNumber": "9876543217",
+      "emailAddress": "kumar@gmail.com",
+      "employeeCode": "K123",
+      "id": 6
+    },
+    {
+      "userID": "sasdas",
+      "firstName": "asdasd",
+      "lastName": "asdad",
+      "jobName": "asdasd",
+      "phoneNumber": "asdasdas",
+      "emailAddress": "sdfsdfs@g.com",
+      "employeeCode": "dfsdfsdf",
+      "id": 7
+    },
+    {
+      "userID": "czxczxczxc",
+      "firstName": "zxczc",
+      "lastName": "zxczxc",
+      "jobName": "zxczxc",
+      "phoneNumber": "9876543210",
+      "emailAddress": "kumar@gmail.com",
+      "employeeCode": "zxczxc",
+      "id": 8
+    }
+  ]
+}
