@@ -42,7 +42,7 @@ export class EmpserveService {
 
   //Fetch emp by id
   getempById(empId: Number): Observable<any> {
-    
+    // alert(empId)
     return this.http.get(this.articleUrl + "/" + empId ).map(res => res.json());
     
   } 

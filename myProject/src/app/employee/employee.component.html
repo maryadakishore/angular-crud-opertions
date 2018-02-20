@@ -14,10 +14,16 @@
             <label for="name">EmpID</label>
             <input type="text" class="form-control" id="empId" name="empId" formControlName="empId" 
              required>
-              <span *ngIf="empForm.controls.empId.invalid && (empForm.controls.empId.dirty || empForm.controls.empId.touched)"
+              <!-- <span *ngIf="empForm.controls.empId.invalid && (empForm.controls.empId.dirty || empForm.controls.empId.touched)"
               class="text-danger" style="position:absolute"> is required, must be at least 4 characters long.
 
-            </span> 
+            </span>  -->
+            <span style="position:absolute" class="text-danger" *ngIf="empForm.get('empId').hasError('required') && empForm.get('empId').touched">
+                ID is Required
+                </span>
+                <span style="position:absolute" class="text-danger" *ngIf="empForm.get('empId').hasError('minlength')">
+                Min of 4 characters
+                </span>
        
           </div>
       
@@ -70,11 +76,14 @@
           </div>
         </form>
  </div>
-
- <div class="float-right">
-   <button class="btn btn-primary pull-right" (click)="addNew()">Add New</button></div>
 </div>
- <div class="table-respnsive">
+
+
+<div class="float-right row btn-group">
+    <button class="btn btn-default" (click)="grid()"><span class="far fa-list-alt"></span></button>
+    <button class="btn btn-primary pull-right" (click)="addNew()">Add New</button>
+   </div>
+ <div class="table-respnsive" *ngIf="tabdetails">
  <table class="table table-default">
    <thead>
      <tr>
@@ -87,7 +96,6 @@
        <th>phoneNumber</th>
        <th>emailAddress</th>
        <th>OPtions</th>
-       <th></th>
      </tr>
    </thead>
    <tbody>
@@ -105,4 +113,17 @@
      </tr>
    </tbody>
  </table>
+</div>
+<div class="container">
+<div *ngIf="gridView" class="row">
+    <ul class="list-group w-25" *ngFor="let person of allEmployees">
+        <li class="list-group-item active text-center">{{ person.firstName }} Details</li>
+        <li class="list-group-item">ID: {{ person.userID }}</li>
+        <li class="list-group-item">Designtion: {{ person.jobName }}</li>
+        <li class="list-group-item">Last Name: {{ person.lastName }}</li>
+        <li class="list-group-item">Code: {{ person.employeeCode }}</li>
+        <li class="list-group-item">Phone: {{ person.phoneNumber }}</li>
+        <li class="list-group-item">Email: {{ person.emailAddress }}</li>
+    </ul>
+</div>
 </div>

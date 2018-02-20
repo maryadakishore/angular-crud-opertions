@@ -18,13 +18,14 @@ export class EpmformComponent implements OnInit {
     // const myid = this.route.snapshot.params['id'];
     // console.log(myid)
     // this.getEmpId(myid);
-
+debugger
     this.route.params.subscribe( (params:Params) => {
       this.getEmpId(params['id']);
     }) 
   }
 
   getEmpId(id) {
+    debugger
     this.empserveservice.getempById(id).subscribe(res => {
       console.log(res)
       this.person = res;

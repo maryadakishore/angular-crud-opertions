@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
+  tabdetails: boolean;
+  gridView: boolean;
 
   namepattern="[a-zA-Z ]*"
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
@@ -30,8 +32,14 @@ export class EmployeeComponent implements OnInit {
   constructor(private empserveservice: EmpserveService) { 
     this.showSelected = false;
     this.showmeupdate = false;
+    this.tabdetails = true;
+  }
+  grid(){
+    this.gridView = !this.gridView;
+    this.tabdetails = !this.tabdetails;
   }
   close(){
+    this.showSelected = false;
     this.showSelected = false;
   }
   removeObject(){
@@ -40,6 +48,8 @@ export class EmployeeComponent implements OnInit {
   }
   addNew(){
     this.showSelected = true;
+    this.tabdetails = true;
+    this.gridView = false;
     this.showmeupdate = false;
     this.showmeadd = true;
     this.empForm.reset();
@@ -112,6 +122,7 @@ export class EmployeeComponent implements OnInit {
     this.getEmployees();
     this.empForm.reset();
     this.showSelected = false;
+    this.tabdetails = true;
     })
     
     }
